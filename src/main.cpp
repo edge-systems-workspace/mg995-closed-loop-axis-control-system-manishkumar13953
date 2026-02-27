@@ -10,11 +10,29 @@
  * and displays temperature and humidity values on Serial Monitor.
  * Students must complete the TODO sections.
  */
-void setup() {
-// write your initialization code here
+#include <Servo.h>
+
+Servo s;
+
+int pos;
+
+void setup()
+{
+  s.attach(9);
 }
 
+void loop()
+{
+  for (pos = 0; pos <= 180; pos++)
+  {
+    s.write(pos);
+    delay(15);
+  }
 
-void loop() {
-// write your code here
+  for (pos = 180; pos >= 0; pos--)
+  {
+    s.write(pos);
+    delay(15);
+  }
 }
+
